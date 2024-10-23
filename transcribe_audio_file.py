@@ -19,7 +19,5 @@ config = aai.TranscriptionConfig(
 transcript = aai.Transcriber().transcribe(audio_file, config)
 
 with open ("transcript.txt", "w") as f:
-  f.write(transcript.text)
-
-for utterance in transcript.utterances:
-  print(f"Speaker {utterance.speaker}: {utterance.text}")
+  for utterance in transcript.utterances:
+    f.write(f"Speaker {utterance.speaker}: {utterance.text}\n")
